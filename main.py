@@ -1,10 +1,19 @@
 import cv2
+import numpy as np
+import os
 
-image1 = cv2.imread('imgs/img1.jpeg')
-gray = cv2.cvtColor(image1, cv2.COLOR_BGR2GRAY)
+dossierE = "imgs"
+dossierS = "ImgsModif"
+files = os.listdir(dossierE)
 
+for f in files:
+    img = cv2.imread(f"{dossierE}/{f}")
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    blur = cv2.GaussianBlur(img, (35, 35), cv2.BORDER_DEFAULT)
+    kernel = np.ones((20, 20), np.uint8)
+    dilation = cv2.dilate(img, kernel, 20)
+    cv2.imwrite(f"{dossierS}/{f}", dilation)
 
-cv2.imwrite('imgsModif/img1.jpeg', gray)
 
 
 
