@@ -1,16 +1,10 @@
-# This is a sample Python script.
+import cv2
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+image1 = cv2.imread('imgs/img1.jpeg')
+gray = cv2.cvtColor(image1, cv2.COLOR_BGR2GRAY)
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+cv2.imwrite('imgsModif/img1.jpeg', gray)
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+
