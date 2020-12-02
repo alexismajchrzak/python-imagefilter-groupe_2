@@ -8,3 +8,4 @@ erosion = cv2.erode(gray.image,kernel,iterations = 1)
 def dilatation_pic(image):
     dilatation = cv2.dilate(gray.image,kernel,iterations = 1)
     cv2.imshow('Image avec dilatation', dilatation)
+    print('dilatation image')
