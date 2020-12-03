@@ -6,6 +6,7 @@ dossierE = "imgs"
 dossierS = "ImgsModif"
 
 blur_pic(dossierE, dossierS)
+gray_pic(dossierS, dossierS)
 
 
 
