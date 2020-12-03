@@ -5,6 +5,12 @@ import logger
 
 
 def gray_pic(dossierE, dossierS):
+    """
+        applies a black & white filter on all images of the directory 'imgs', catching errors (such as wrong name, or wrong type of file) if encountered
+        :param dossierE: the directory from which we get the image to modify
+        :param dossierS: the directory where the modified image is saved
+
+        """
     files = os.listdir(dossierE)
     for f in files:
         if f.endswith('.jpg'):
