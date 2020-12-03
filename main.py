@@ -2,19 +2,23 @@ from gray import gray_pic
 from dilatation import dilatation_pic
 from blur import blur_pic
 import sys
-import cv2
 import logger
-
-import numpy as np
 import os
 
+args = sys.argv
 
-import numpy
-#<<<<<<< Updated upstream
+for i in range(0, len(args)):
+    arg = args[i]
+    if arg == '-i':
+        dossierE = f'{args[i+1]}'
 
 
-dossierE = "imgs"
-dossierS = "ImgsModif"
+for i in range(0, len(args)):
+        arg = args[i]
+        if arg == '-o':
+            dossierS = f'{args[i+1]}'
+            if not os.path.exists(args[i+1]):
+                os.mkdir(args[i + 1])
 
 blur_pic(dossierE, dossierS)
 dilatation_pic(dossierE,dossierS)
@@ -22,21 +26,21 @@ gray_pic(dossierS, dossierS)
 
 
 
+first_arg = args [1]
 
-
-
-
-
-
-
-image = cv2.imread('imgs/image1.jpg')
-image_gray= cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-cv2.imwrite('ImgsModif/image1.jpg', image_gray)
-
-
-
-
-
+if first_arg == '-h':
+    print(args)
+    print('usage: imagefilter')
+    print("-h, ---help")
+    print("-i, --input-dir <imgs>")
+    print("-o, --output-dir <>")
+    print("--blur --dilate -- gray")
+elif first_arg == '---help':
+    print('write "-i" for choose an input dir')
+    print('write "-o" for choose an output dir')
+    print('write "--blur" to blur the images')
+    print('write "--dilate" to dilate the images')
+    print('write "--gray" to put the images in black and white')
 
 
 
