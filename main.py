@@ -1,13 +1,10 @@
-import cv2
-import gray
-import blur
-import dilatation
+from gray import gray_pic
+from dilatation import dilatation_pic
+from blur import blur_pic
 
-gray.gray_pic(gray.image)
-blur.blur_pic(gray.image)
-dilatation.dilatation_pic(gray.image)
+dossierE = "imgs"
+dossierS = "ImgsModif"
 
-cv2.waitKey(0)
-cv2.destroyAllWindows()
-
-
+blur_pic(dossierE, dossierS)
+# gray_pic(dossierS, dossierS)
+# dilatation_pic(dossierS, dossierS)
