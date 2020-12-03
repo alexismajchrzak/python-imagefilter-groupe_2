@@ -2,7 +2,10 @@ import cv2
 import os
 
 
-def blur_pic(dossierE, dossierS):
+def blur_pic(dossierE, dossierS, blur_level):
+    if blur_level <= 0 or blur_level % 2 == 0:
+        print(f'blur_level invalide : {blur_level}')
+        return
 
     files = os.listdir(dossierE)
     for f in files:
@@ -11,7 +14,8 @@ def blur_pic(dossierE, dossierS):
             try:
                 print(f)
                 img = cv2.imread(f"{dossierE}/{f}")
-                blur = cv2.GaussianBlur(img, (30, 30), cv2.BORDER_DEFAULT)
+                blur = cv2.GaussianBlur(img, (blur_level, blur_level), cv2.BORDER_DEFAULT)
+
                 cv2.imwrite(f"{dossierS}/{f}", blur)
             except NameError as e:
                 print(f"image inexistante, erreur : {e}")
