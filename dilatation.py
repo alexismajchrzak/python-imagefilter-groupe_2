@@ -5,6 +5,12 @@ import logger
 
 
 def dilatation_pic(dossierE, dossierS):
+    """
+    Applies a dilatation effect on all img from the directory "imgs", catching errors (such as wrong name, or wrong type of file) if encountered
+        :param dossierE: the directory from which we get the images to modify
+        :param dossierS: the directory where the modified images are saved
+
+    """
     files = os.listdir(dossierE)
     kernel = np.ones((20, 20), np.uint8)
     for f in files:

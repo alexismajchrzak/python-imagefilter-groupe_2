@@ -4,6 +4,14 @@ import logger
 
 
 def blur_pic(dossierE, dossierS, blur_level):
+    """
+    Applies a blured effect on all the imgs of the directory 'imgs', catching errors
+    (such as wrong name, or wrong type of file & wrong blur value (negative or even)) if encountered.
+    :param dossierS: the directory from which we get the images to modify
+    :param dossierS: the directory where the modified images are saved
+    :param blur_level: the blurred level
+
+    """
     if blur_level <= 0 or blur_level % 2 == 0:
         print(f'blur_level invalide : {blur_level}')
         return
