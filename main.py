@@ -7,11 +7,15 @@ import os
 
 args = sys.argv
 
+# On boucle dans nos arguments, si l'un d'eux est "--dilate",
+# notre valeur de dilatation prend celle écrite juste après --dilate
 for i in range(0, len(args)):
     arg = args[i]
     if arg == '--dilate':
         dilate_level = int(args[i+1])
 
+# On boucle dans nos arguments, si l'un d'eux est "--blur",
+# notre notre valeur de flou prend celle écrite juste après --blur
 for i in range(0, len(args)):
     arg = args[i]
     if arg == '--blur':
