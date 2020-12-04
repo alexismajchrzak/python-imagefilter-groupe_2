@@ -7,6 +7,17 @@ import os
 
 args = sys.argv
 
+for i in range(0, len(args)):
+    arg = args[i]
+    if arg == '--dilate':
+        dilate_level = int(args[i+1])
+
+for i in range(0, len(args)):
+    arg = args[i]
+    if arg == '--blur':
+        blur_level = int(args[i+1])
+
+
 # On boucle dans nos arguments, si l'un d'eux est "-i", notre dossier d'entrée prend la valeur écrite juste après
 for i in range(0, len(args)):
     arg = args[i]
@@ -20,28 +31,6 @@ for i in range(0, len(args)):
             dossierS = f'{args[i+1]}'
             if not os.path.exists(args[i+1]):
                 os.mkdir(args[i + 1])
-
-# On boucle dans nos arguments, si l'un d'eux est "--blur", alors on lance la fonction blur_pic
-for i in range(0, len(args)):
-    arg = args[i]
-    if arg == '--blur':
-        blur_pic(dossierE, dossierS, 13)
-
-# On boucle dans nos arguments, si l'un d'eux est "--dilate", alors on lance la fonction dilatation_pic
-for i in range(0, len(args)):
-    arg = args[i]
-    if arg == '--dilate':
-        dilatation_pic(dossierS,dossierS)
-
-# On boucle dans nos arguments, si l'un d'eux est "--gray", alors on lance la fonction gray_pic
-for i in range(0, len(args)):
-    arg = args[i]
-    if arg == '--gray':
-        gray_pic(dossierS,dossierS)
-
-
-#blur_pic(dossierE,dossierS,13)
-#dilatation_pic(dossierS,dossierS)
 
 first_arg = args [1]
 
@@ -62,5 +51,47 @@ elif first_arg == '---help':
     print('write "--dilate" to dilate the images')
     print('write "--gray" to put the images in black and white')
 
+if args[1] == '--gray':
+    gray_pic(dossierE, dossierS)
+    for i in range(2, len(args)):
+        arg = args[i]
+        if arg == '--blur':
+            blur_pic(dossierS, dossierS, blur_level)
+        elif arg == '--dilate':
+            dilatation_pic(dossierS, dossierS, dilate_level)
+
+elif args[1] == '--blur':
+    blur_pic(dossierE, dossierS, blur_level)
+    for i in range(2, len(args)):
+        arg = args[i]
+        if arg == '--gray':
+            gray_pic(dossierS, dossierS)
+        elif arg == '--dilate':
+            dilatation_pic(dossierS,dossierS,dilate_level)
+
+elif args[1] == '--dilate':
+    dilatation_pic(dossierE, dossierS, dilate_level)
+    for i in range(2, len(args)):
+        arg = args[i]
+        if arg == '--blur':
+            blur_pic(dossierS, dossierS, blur_level)
+        elif arg == '--gray':
+            gray_pic(dossierS,dossierS)
 
 logger.dump_log()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
