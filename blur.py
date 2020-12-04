@@ -27,6 +27,7 @@ def blur_pic(dossierE, dossierS, blur_level):
                 cv2.imwrite(f"{dossierS}/{f}", blur)
                 logger.log(f' blur_pic ={f}')
             except NameError as e:
+                logger.log(f"image inexistante, erreur : {e}")
                 print(f"image inexistante, erreur : {e}")
         elif f.endswith('.jpeg'):
             print("elif (pour .jpeg)")
@@ -37,6 +38,7 @@ def blur_pic(dossierE, dossierS, blur_level):
                 cv2.imwrite(f"{dossierS}/{f}", blur)
                 logger.log(f' blur_pic ={f}')
             except NameError as e:
+                logger.log(f"image inexistante, erreur : {e}")
                 print(f"image inexistante, erreur : {e}")
         elif f.endswith('.png'):
             print("2ème elif (pour .png)")
@@ -47,9 +49,10 @@ def blur_pic(dossierE, dossierS, blur_level):
                 cv2.imwrite(f"{dossierS}/{f}", blur)
                 logger.log(f' blur_pic ={f}')
             except NameError as e:
-                print(f"image inexistante, erreur : {e}")
+                logger.log(f"image inexistante, erreur : {e}")
+                print(f'image inexistante, erreur : {e}')
         else:
-            print("else   Erreur : Le fichier que vous essayez d'ouvrir n'est pas une image.")
+            logger.log("else   Erreur : Le fichier que vous essayez d'ouvrir n'est pas une image.")
             print(f)
 
 

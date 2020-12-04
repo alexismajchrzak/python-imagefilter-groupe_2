@@ -23,7 +23,22 @@ for i in range(0, len(args)):
 
 for i in range(0, len(args)):
     arg = args[i]
-    if arg == '--blur'
+    if arg == '--blur':
+        blur_pic(dossierE, dossierS, 13)
+
+for i in range(0, len(args)):
+    arg = args[i]
+    if arg == '--dilate':
+        dilatation_pic(dossierS,dossierS)
+
+for i in range(0, len(args)):
+    arg = args[i]
+    if arg == '--gray':
+        gray_pic(dossierS,dossierS)
+
+
+#blur_pic(dossierE,dossierS,13)
+#dilatation_pic(dossierS,dossierS)
 
 first_arg = args [1]
 
