@@ -20,11 +20,10 @@ for i in range(0, len(args)):
             if not os.path.exists(args[i+1]):
                 os.mkdir(args[i + 1])
 
-blur_pic(dossierE, dossierS)
-dilatation_pic(dossierE,dossierS)
-gray_pic(dossierS, dossierS)
 
-
+for i in range(0, len(args)):
+    arg = args[i]
+    if arg == '--blur'
 
 first_arg = args [1]
 
@@ -41,9 +40,6 @@ elif first_arg == '---help':
     print('write "--blur" to blur the images')
     print('write "--dilate" to dilate the images')
     print('write "--gray" to put the images in black and white')
-
-
-
 
 
 logger.dump_log()
