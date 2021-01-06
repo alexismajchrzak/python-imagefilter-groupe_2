@@ -1,8 +1,14 @@
 from gray import gray_pic
 from dilatation import dilatation_pic
 from blur import blur_pic
+# donne accès à des variables utilisées par l'interpréteur et aux fonctions
+# qui intéragissent avec lui
 import sys
+
+# package permettant d'instaurer un système de log
 import logger
+
+# pour utiliser les fonctionnalités dépendantes de l'os
 import os
 
 args = sys.argv
