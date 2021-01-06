@@ -1,4 +1,6 @@
+# pour modifier des images
 import cv2
+# NumPy is the fundamental package for array computing with Python.
 import numpy as np
 import os
 import logger
